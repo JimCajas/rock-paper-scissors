@@ -1,4 +1,5 @@
 
+// return computer's hand randomly
 function getComputerChoice () {
     let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
@@ -10,22 +11,24 @@ function getComputerChoice () {
     }
 }
 
-
-// How can I add 1 point each to the score variables? And how can I tally up the score?
-
-// How can I sum the points and declare the winner at the end of 5 games?
-
+// Initialize player score and computer score so result of each game can be added
 let playerScore = 0;
 let computerScore = 0;
     
+// Play one game and return the result to console
 function playRound() {
+    // Receive player's choice and store it temporarily 
     let playerInput = prompt('Choose your hand! Enter "Rock, Paper or Scissors"!')
+    // Convert the player's choice into a lowercase variable
     let playerSelection = playerInput.toLowerCase();
+    // Bring computer's choice for this game
     let computerSelection = getComputerChoice();
+    // Store the result of this game to be returned
     let result;
+    // Display a tie game message and will not add to the scores
     if (playerSelection === computerSelection) {
         result = "It's a draw! You chose " + playerSelection + " and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
-
+    // Display the winner of the game and add the score to the winner's score
     } else if (playerSelection === "rock") {
         if (computerSelection === "scissors") {
             playerScore++;
@@ -54,6 +57,7 @@ function playRound() {
     return console.log(result);
 }
 
+// Declare the winner at the end of the set by checking who has won more
 function finalScore (){
     let announcement;
     if (playerScore === computerScore) {
@@ -68,6 +72,7 @@ function finalScore (){
     }
 }
 
+// Play 1 set of 5 games and display the winner with the total game won
 playRound();
 playRound();
 playRound();
@@ -75,6 +80,16 @@ playRound();
 playRound();
 console.log(finalScore());
 
+
+
+
+
+
+
+
+// How can I add 1 point each to the score variables? And how can I tally up the score?
+
+// How can I sum the points and declare the winner at the end of 5 games?
 
 
 
