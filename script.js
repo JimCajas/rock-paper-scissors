@@ -1,5 +1,4 @@
-
-// return computer's hand randomly
+// Return computer's hand randomly
 function getComputerChoice () {
     let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
@@ -19,7 +18,7 @@ let computerScore = 0;
 function playRound() {
     // Receive player's choice and store it temporarily 
     let playerInput = prompt('Choose your hand! Enter "Rock, Paper or Scissors"!')
-    // Convert the player's choice into a lowercase variable
+    // Convert the player's choice into a lowercase variable so it can be always compared with computer's choice
     let playerSelection = playerInput.toLowerCase();
     // Bring computer's choice for this game
     let computerSelection = getComputerChoice();
@@ -79,153 +78,3 @@ playRound();
 playRound();
 playRound();
 console.log(finalScore());
-
-
-
-
-
-
-
-
-// How can I add 1 point each to the score variables? And how can I tally up the score?
-
-// How can I sum the points and declare the winner at the end of 5 games?
-
-
-
-/*
-IF computerChoice was Rock === playerChoice is Paper {
-	return you win
-} else if computerChoice was Rock === playerChoice is Rock {
-	return it’s a draw
-} else if computerChoice was Rock === playerChoice is not Paper nor Rock {
-	return you lose
-}
-*/
-
-/*
-function game () {
-    for (let i = 0; i < 5; i++){
-        
-    }
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-
-
-function playRound() {
-    let playerInput = prompt('Choose your hand! Enter "Rock, Paper or Scissors"!')
-    let playerSelection = playerInput.toLowerCase();
-    let computerSelection = getComputerChoice();
-    let result;
-    let playerScore = 0;
-    let computerScore = 0;
-    if (playerSelection === computerSelection) {
-        result = "It's a draw! You chose " + playerSelection + " and computer chose " + computerSelection + "."
-    } else if (playerSelection === "rock") {
-        result = computerSelection === "scissors" ? "You win! You chose " + playerSelection + " and computer chose " + computerSelection + "." : "You lose! You chose " + playerSelection + " and computer chose " + computerSelection + ".";
-    } else if (playerSelection === "paper") {
-        result = computerSelection === "rock" ? "You win! You chose " + playerSelection + " and computer chose " + computerSelection + "." : "You lose! You chose " + playerSelection + " and computer chose " + computerSelection + ".";
-    } else if (playerSelection === "scissors") {
-        result = computerSelection === "paper" ? "You win! You chose " + playerSelection + " and computer chose " + computerSelection + "." : "You lose! You chose " + playerSelection + " and computer chose " + computerSelection + ".";
-    }
-    return console.log(result);
-}
-
-playRound();
-playRound();
-playRound();
-playRound();
-playRound();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let playerInput = prompt('Choose your hand! Enter "Rock, Paper or Scissors"!')
-let playerSelection = playerInput.toLowerCase();
-let computerSelection = getComputerChoice();
-
-function getComputerChoice () {
-    let randomNumber = Math.floor(Math.random() * 3);
-    if (randomNumber === 0) {
-        return "rock";
-    }  else if (randomNumber === 1) {
-        return "paper";
-    } else {
-        return "scissors";
-    }
-}
-
-const playRound = () => {
-    playerInput;
-    playerSelection;
-    computerSelection;    
-    let result;
-    if (playerSelection === computerSelection) {
-        result = "It's a draw! You chose " + playerSelection + " and computer chose " + computerSelection + "."
-    } else if (playerSelection === "rock") {
-        result = computerSelection === "scissors" ? "You win! You chose " + playerSelection + " and computer chose " + computerSelection + "." : "You lose! You chose " + playerSelection + " and computer chose " + computerSelection + ".";
-    } else if (playerSelection === "paper") {
-        result = computerSelection === "rock" ? "You win! You chose " + playerSelection + " and computer chose " + computerSelection + "." : "You lose! You chose " + playerSelection + " and computer chose " + computerSelection + ".";
-    } else if (playerSelection === "scissors") {
-        result = computerSelection === "paper" ? "You win! You chose " + playerSelection + " and computer chose " + computerSelection + "." : "You lose! You chose " + playerSelection + " and computer chose " + computerSelection + ".";
-    }
-    //return result;
-    return console.log(result);
-}
-
-const game = (func, n) => {
-    for(let i=1; i<=n; i++){
-        func()
-    }
-}
-
-game(playRound, 2)
-*/
