@@ -14,6 +14,7 @@ function getComputerChoice () {
 let playerScore = 0;
 let computerScore = 0;
 
+// Select all elements manipulated for the game
 const btnRock = document.querySelector("#rock");
 const btnPaper = document.querySelector("#paper");
 const btnScissors = document.querySelector("#scissors");
@@ -22,12 +23,11 @@ const divResult = document.querySelector(".result");
 const body = document.querySelector("body");
 const container = document.querySelector(".container");
 
-// Play one game and return the result to console
+// Play one game and display the running score
 function playRoundRock() {
     // Bring computer's choice for this game
     let computerSelection = getComputerChoice();
-    // Store the result of this game to be returned
-    let result = "test";
+    let result;
     
     if (computerSelection === "rock"){
         result = "It's a draw! You chose rock and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
@@ -38,46 +38,12 @@ function playRoundRock() {
         playerScore++;
         result = "You win! You chose rock and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
     }
-
-    return result;
-
-    // Display a tie game message and will not add to the scores
-    /*
-    if (playerSelection === computerSelection) {
-        result = "It's a draw! You chose " + playerSelection + " and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
-    // Display the winner of the game and add the score to the winner's score
-    } else if (playerSelection === "rock") {
-        if (computerSelection === "scissors") {
-            playerScore++;
-            result = "You win! You chose " + playerSelection + " and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
-        } else {
-            computerScore++;
-            result = "You lose! You chose " + playerSelection + " and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
-        }        
-    } else if (playerSelection === "paper") {
-        if (computerSelection === "rock") {
-            playerScore++;
-            result = "You win! You chose " + playerSelection + " and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
-        } else {
-            computerScore++;
-            result = "You lose! You chose " + playerSelection + " and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
-        }
-    } else if (playerSelection === "scissors") {
-        if (computerSelection === "paper") {
-            playerScore++;
-            result = "You win! You chose " + playerSelection + " and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
-        } else {
-            computerScore++;
-            result = "You lose! You chose " + playerSelection + " and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
-        }
-    }
-    */
-    
+    return result;    
 }
 
 function playRoundPaper() {
     let computerSelection = getComputerChoice();
-    let result = "test";
+    let result;
     
     if (computerSelection === "paper"){
         result = "It's a draw! You chose paper and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
@@ -93,7 +59,7 @@ function playRoundPaper() {
 
 function playRoundScissors() {
     let computerSelection = getComputerChoice();
-    let result = "test";
+    let result;
     
     if (computerSelection === "scissors"){
         result = "It's a draw! You chose scissors and computer chose " + computerSelection + ". " + "Your score: " + playerScore + " vs. Computer score: " + computerScore;
@@ -107,7 +73,7 @@ function playRoundScissors() {
     return result;   
 }
 
-// Declare the winner at the end of the set by checking who has won more
+// Declare the winner by comparing the scores.
 function finalScore(){
     let announcement;
     if (playerScore === computerScore) {
@@ -121,6 +87,8 @@ function finalScore(){
         return announcement;
     }
 }
+
+// End the game by displaying the final score and removing the buttons when one player reaches 5 wins 
 
 btnRock.addEventListener("click", () => {
     playRoundRock();
@@ -178,15 +146,3 @@ btnScissors.addEventListener("click", () => {
         pRound.textContent = result;
         divRound.appendChild(pRound);
 })
-
-
-
-/*
-// Play 1 set of 5 games and display the winner with the total game won
-playRound();
-playRound();
-playRound();
-playRound();
-playRound();
-console.log(finalScore());
-*/
